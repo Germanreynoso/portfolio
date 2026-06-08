@@ -1,0 +1,5 @@
+[    5557ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://el-grow-de-aixa.netlify.app/_vercel/insights/script.js:0
+[    5558ms] [ERROR] Refused to execute script from 'https://el-grow-de-aixa.netlify.app/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. @ https://el-grow-de-aixa.netlify.app/:0
+[    5558ms] [LOG] [Vercel Web Analytics] Failed to load script from /_vercel/insights/script.js. Be sure to enable Web Analytics for your project and deploy again. See https://vercel.com/docs/analytics/quickstart for more information. @ https://el-grow-de-aixa.netlify.app/_next/static/chunks/0o25lh-fvt0ub.js:0
+[    5630ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://el-grow-de-aixa.netlify.app/perfil?_rsc=1r34m:0
+[    5664ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://el-grow-de-aixa.netlify.app/carrito?_rsc=1r34m:0

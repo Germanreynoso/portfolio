@@ -1,0 +1,400 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - navigation [ref=e4]:
+      - generic [ref=e5]:
+        - link "AQUILES INDUMENTARIA" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e7]: AQUILES
+          - generic [ref=e8]: INDUMENTARIA
+        - generic [ref=e9]:
+          - link "SELECCION ARGENTINA" [ref=e10] [cursor=pointer]:
+            - /url: "#seleccion-argentina"
+          - link "RETRO" [ref=e11] [cursor=pointer]:
+            - /url: "#retro"
+          - link "FUTBOL ARGENTINO" [ref=e12] [cursor=pointer]:
+            - /url: "#futbol-argentino"
+          - link "URBAN" [ref=e13] [cursor=pointer]:
+            - /url: "#urban"
+        - generic [ref=e14]:
+          - button "Buscar" [ref=e15]:
+            - img [ref=e16]
+          - button "Bolsa de compras" [ref=e19]:
+            - img [ref=e20]
+    - generic [ref=e23]:
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e35]: COLECCIÓN OFICIAL 2024/25
+          - heading "EL CORAZÓN DEL VALLE" [level=1] [ref=e36]:
+            - generic [ref=e38]: EL CORAZÓN
+            - generic [ref=e40]: DEL VALLE
+          - paragraph [ref=e41]: Indumentaria deportiva de alta gama diseñada para los que viven el fútbol con intensidad. Calidad profesional en cada detalle.
+          - generic [ref=e42]:
+            - button "COMPRAR AHORA" [ref=e43]:
+              - text: COMPRAR AHORA
+              - img [ref=e44]
+            - button "VER SPOT" [ref=e46]:
+              - img [ref=e48]
+              - text: VER SPOT
+        - generic [ref=e51]:
+          - img "Featured Argentina Jersey" [ref=e54]
+          - generic [ref=e57]:
+            - generic [ref=e58]: "10"
+            - generic [ref=e59]:
+              - generic [ref=e60]: PREMIUM EDITION
+              - generic [ref=e61]: ARGENTINA 24
+      - generic [ref=e66]: EXPLORAR
+    - generic [ref=e68]:
+      - generic [ref=e69]:
+        - generic [ref=e70]:
+          - text: Colecciones
+          - heading "COMPRAR POR EQUIPO" [level=2] [ref=e71]
+        - link "VER TODAS LAS COLECCIONES" [ref=e72] [cursor=pointer]:
+          - /url: "#all"
+          - text: VER TODAS LAS COLECCIONES
+          - img [ref=e73]
+      - generic [ref=e76]:
+        - link "Selección Nacional SELECCION ARGENTINA Colección oficial Albiceleste" [ref=e77] [cursor=pointer]:
+          - /url: "#seleccion-argentina"
+          - generic [ref=e80]:
+            - text: Selección Nacional
+            - heading "SELECCION ARGENTINA" [level=3] [ref=e81]
+            - paragraph [ref=e82]: Colección oficial Albiceleste
+            - img [ref=e84]
+        - link "Clásicos RETRO Camisetas vintage icónicas" [ref=e87] [cursor=pointer]:
+          - /url: "#retro"
+          - generic [ref=e90]:
+            - text: Clásicos
+            - heading "RETRO" [level=3] [ref=e91]
+            - paragraph [ref=e92]: Camisetas vintage icónicas
+            - img [ref=e94]
+        - link "Liga Profesional FUTBOL ARGENTINO Equipos del fútbol local" [ref=e97] [cursor=pointer]:
+          - /url: "#futbol-argentino"
+          - generic [ref=e100]:
+            - text: Liga Profesional
+            - heading "FUTBOL ARGENTINO" [level=3] [ref=e101]
+            - paragraph [ref=e102]: Equipos del fútbol local
+            - img [ref=e104]
+        - link "Streetwear URBAN Indumentaria urbana" [ref=e107] [cursor=pointer]:
+          - /url: "#urban"
+          - generic [ref=e110]:
+            - text: Streetwear
+            - heading "URBAN" [level=3] [ref=e111]
+            - paragraph [ref=e112]: Indumentaria urbana
+            - img [ref=e114]
+    - generic [ref=e120]:
+      - generic [ref=e121]:
+        - generic [ref=e122]: EXCLUSIVIDAD EN CADA HILO
+        - heading "NUESTRA SELECCIÓN" [level=2] [ref=e123]
+        - paragraph [ref=e124]: Descubre las prendas que definen el estilo dentro y fuera del campo. Calidad profesional garantizada.
+      - generic [ref=e125]:
+        - button "TODOS" [ref=e126]
+        - button "SELECCIÓN ARGENTINA" [ref=e127]
+        - button "RETRO" [ref=e128]
+        - button "FÚTBOL ARGENTINO" [ref=e129]
+        - button "URBAN" [ref=e130]
+      - generic [ref=e131]:
+        - generic [ref=e133]:
+          - generic [ref=e134]: MÁS VENDIDO
+          - generic [ref=e135]:
+            - img "Camiseta AFA Entrenamiento" [ref=e137]
+            - button "AÑADIR AL CARRITO" [ref=e140]:
+              - img [ref=e141]
+              - text: AÑADIR AL CARRITO
+          - generic [ref=e144]:
+            - generic [ref=e146]: SELECCION ARGENTINA
+            - heading "Camiseta AFA Entrenamiento" [level=3] [ref=e147]
+            - generic [ref=e149]:
+              - generic [ref=e150]: Talles disponibles
+              - generic [ref=e151]: S al XXL
+        - generic [ref=e153]:
+          - generic [ref=e154]: NUEVO
+          - generic [ref=e155]:
+            - img "Camiseta Argentina 2026 Titular" [ref=e157]
+            - button "AÑADIR AL CARRITO" [ref=e160]:
+              - img [ref=e161]
+              - text: AÑADIR AL CARRITO
+          - generic [ref=e164]:
+            - generic [ref=e166]: SELECCION ARGENTINA
+            - heading "Camiseta Argentina 2026 Titular" [level=3] [ref=e167]
+            - generic [ref=e169]:
+              - generic [ref=e170]: Talles disponibles
+              - generic [ref=e171]: S al XXL
+        - generic [ref=e173]:
+          - generic [ref=e174]:
+            - img "Camiseta del Dibu" [ref=e176]
+            - button "AÑADIR AL CARRITO" [ref=e179]:
+              - img [ref=e180]
+              - text: AÑADIR AL CARRITO
+          - generic [ref=e183]:
+            - generic [ref=e185]: SELECCION ARGENTINA
+            - heading "Camiseta del Dibu" [level=3] [ref=e186]
+            - generic [ref=e188]:
+              - generic [ref=e189]: Talles disponibles
+              - generic [ref=e190]: 6 al 16 | S al XXL
+        - generic [ref=e192]:
+          - generic [ref=e193]:
+            - img "Camiseta Argentina 2026 Infantil" [ref=e195]
+            - button "AÑADIR AL CARRITO" [ref=e198]:
+              - img [ref=e199]
+              - text: AÑADIR AL CARRITO
+          - generic [ref=e202]:
+            - generic [ref=e204]: SELECCION ARGENTINA
+            - heading "Camiseta Argentina 2026 Infantil" [level=3] [ref=e205]
+            - generic [ref=e207]:
+              - generic [ref=e208]: Talles disponibles
+              - generic [ref=e209]: 6 al 16
+        - generic [ref=e211]:
+          - generic [ref=e212]:
+            - img "Pupera Selección Argentina" [ref=e214]
+            - button "AÑADIR AL CARRITO" [ref=e217]:
+              - img [ref=e218]
+              - text: AÑADIR AL CARRITO
+          - generic [ref=e221]:
+            - generic [ref=e223]: SELECCION ARGENTINA
+            - heading "Pupera Selección Argentina" [level=3] [ref=e224]
+            - generic [ref=e226]:
+              - generic [ref=e227]: Talles disponibles
+              - generic [ref=e228]: S al XXL
+        - generic [ref=e230]:
+          - generic [ref=e231]: POPULAR
+          - generic [ref=e232]:
+            - img "Camiseta Alternativa Boca" [ref=e234]
+            - button "AÑADIR AL CARRITO" [ref=e237]:
+              - img [ref=e238]
+              - text: AÑADIR AL CARRITO
+          - generic [ref=e241]:
+            - generic [ref=e243]: FUTBOL ARGENTINO
+            - heading "Camiseta Alternativa Boca" [level=3] [ref=e244]
+            - generic [ref=e246]:
+              - generic [ref=e247]: Talles disponibles
+              - generic [ref=e248]: S al XXL
+        - generic [ref=e250]:
+          - generic [ref=e251]:
+            - img "Camiseta Infantil Boca Alternativa" [ref=e253]
+            - button "AÑADIR AL CARRITO" [ref=e256]:
+              - img [ref=e257]
+              - text: AÑADIR AL CARRITO
+          - generic [ref=e260]:
+            - generic [ref=e262]: FUTBOL ARGENTINO
+            - heading "Camiseta Infantil Boca Alternativa" [level=3] [ref=e263]
+            - generic [ref=e265]:
+              - generic [ref=e266]: Talles disponibles
+              - generic [ref=e267]: 6 al 16
+        - generic [ref=e269]:
+          - generic [ref=e270]: ICÓNICO
+          - generic [ref=e271]:
+            - img "Camiseta Retro Maradona" [ref=e273]
+            - button "AÑADIR AL CARRITO" [ref=e276]:
+              - img [ref=e277]
+              - text: AÑADIR AL CARRITO
+          - generic [ref=e280]:
+            - generic [ref=e282]: RETRO
+            - heading "Camiseta Retro Maradona" [level=3] [ref=e283]
+            - generic [ref=e285]:
+              - generic [ref=e286]: Talles disponibles
+              - generic [ref=e287]: S al XXL
+        - generic [ref=e289]:
+          - generic [ref=e290]:
+            - img "Camiseta Retro River" [ref=e292]
+            - button "AÑADIR AL CARRITO" [ref=e295]:
+              - img [ref=e296]
+              - text: AÑADIR AL CARRITO
+          - generic [ref=e299]:
+            - generic [ref=e301]: RETRO
+            - heading "Camiseta Retro River" [level=3] [ref=e302]
+            - generic [ref=e304]:
+              - generic [ref=e305]: Talles disponibles
+              - generic [ref=e306]: S al XXL
+        - generic [ref=e308]:
+          - generic [ref=e309]:
+            - img "Camiseta Retro Boca Alternativa" [ref=e311]
+            - button "AÑADIR AL CARRITO" [ref=e314]:
+              - img [ref=e315]
+              - text: AÑADIR AL CARRITO
+          - generic [ref=e318]:
+            - generic [ref=e320]: RETRO
+            - heading "Camiseta Retro Boca Alternativa" [level=3] [ref=e321]
+            - generic [ref=e323]:
+              - generic [ref=e324]: Talles disponibles
+              - generic [ref=e325]: Consultar talles
+        - generic [ref=e327]:
+          - generic [ref=e328]: NUEVO
+          - generic [ref=e329]:
+            - img "Remera Oversize Estampada" [ref=e331]
+            - button "AÑADIR AL CARRITO" [ref=e334]:
+              - img [ref=e335]
+              - text: AÑADIR AL CARRITO
+          - generic [ref=e338]:
+            - generic [ref=e340]: URBAN
+            - heading "Remera Oversize Estampada" [level=3] [ref=e341]
+            - generic [ref=e343]:
+              - generic [ref=e344]: Talles disponibles
+              - generic [ref=e345]: S al L
+        - generic [ref=e347]:
+          - generic [ref=e348]:
+            - img "Remera Oversize Lisa" [ref=e350]
+            - button "AÑADIR AL CARRITO" [ref=e353]:
+              - img [ref=e354]
+              - text: AÑADIR AL CARRITO
+          - generic [ref=e357]:
+            - generic [ref=e359]: URBAN
+            - heading "Remera Oversize Lisa" [level=3] [ref=e360]
+            - generic [ref=e362]:
+              - generic [ref=e363]: Talles disponibles
+              - generic [ref=e364]: S al L
+        - generic [ref=e366]:
+          - generic [ref=e367]:
+            - img "Remera Clásica Estampada" [ref=e369]
+            - button "AÑADIR AL CARRITO" [ref=e372]:
+              - img [ref=e373]
+              - text: AÑADIR AL CARRITO
+          - generic [ref=e376]:
+            - generic [ref=e378]: URBAN
+            - heading "Remera Clásica Estampada" [level=3] [ref=e379]
+            - generic [ref=e381]:
+              - generic [ref=e382]: Talles disponibles
+              - generic [ref=e383]: S al XXL
+        - generic [ref=e385]:
+          - generic [ref=e386]:
+            - img "Remera Clásica Lisa" [ref=e388]
+            - button "AÑADIR AL CARRITO" [ref=e391]:
+              - img [ref=e392]
+              - text: AÑADIR AL CARRITO
+          - generic [ref=e395]:
+            - generic [ref=e397]: URBAN
+            - heading "Remera Clásica Lisa" [level=3] [ref=e398]
+            - generic [ref=e400]:
+              - generic [ref=e401]: Talles disponibles
+              - generic [ref=e402]: S al XL
+        - generic [ref=e404]:
+          - generic [ref=e405]:
+            - img "Musculosa Clásica Lisa" [ref=e407]
+            - button "AÑADIR AL CARRITO" [ref=e410]:
+              - img [ref=e411]
+              - text: AÑADIR AL CARRITO
+          - generic [ref=e414]:
+            - generic [ref=e416]: URBAN
+            - heading "Musculosa Clásica Lisa" [level=3] [ref=e417]
+            - generic [ref=e419]:
+              - generic [ref=e420]: Talles disponibles
+              - generic [ref=e421]: S al XXL
+        - generic [ref=e423]:
+          - generic [ref=e424]: TENDENCIA
+          - generic [ref=e425]:
+            - img "Remera Waffle" [ref=e427]
+            - button "AÑADIR AL CARRITO" [ref=e430]:
+              - img [ref=e431]
+              - text: AÑADIR AL CARRITO
+          - generic [ref=e434]:
+            - generic [ref=e436]: URBAN
+            - heading "Remera Waffle" [level=3] [ref=e437]
+            - generic [ref=e439]:
+              - generic [ref=e440]: Talles disponibles
+              - generic [ref=e441]: S al XXL
+      - link "EXPLORAR TODO EL CATÁLOGO" [ref=e443] [cursor=pointer]:
+        - /url: "#all-products"
+    - generic [ref=e450]:
+      - generic [ref=e451]:
+        - generic [ref=e454]: Edición de Coleccionista
+        - heading "LA LEYENDA INMORTAL" [level=2] [ref=e455]:
+          - generic [ref=e456]: LA LEYENDA
+          - generic [ref=e457]: INMORTAL
+        - paragraph [ref=e458]: "Mística Maradona 1990: La Armadura del Diez. Llevá con vos un pedazo de historia del Mundial más emocionante. Ideal para fanáticos y coleccionistas."
+        - button "COMPRAR RETRO" [ref=e460]:
+          - text: COMPRAR RETRO
+          - img [ref=e461]
+        - generic [ref=e463]:
+          - generic [ref=e464]:
+            - generic [ref=e465]: "1990"
+            - generic [ref=e466]: MUNDIAL
+          - generic [ref=e467]:
+            - generic [ref=e468]: "10"
+            - generic [ref=e469]: EL D10S
+          - generic [ref=e470]:
+            - generic [ref=e471]: ∞
+            - generic [ref=e472]: GLORIA
+      - generic [ref=e474]:
+        - img "Retro Argentina 1986 Jersey" [ref=e476]
+        - generic [ref=e479]:
+          - generic [ref=e480]: AUTENTICIDAD
+          - paragraph [ref=e481]: Réplica exacta con tejidos de época y detalles bordados a mano.
+    - generic [ref=e482]:
+      - generic [ref=e483]:
+        - generic [ref=e484]:
+          - generic [ref=e485]:
+            - link "AQUILES INDUMENTARIA" [ref=e486] [cursor=pointer]:
+              - /url: /
+            - paragraph [ref=e487]: Camisetas de fútbol premium que celebran la cultura del fútbol argentino. Nacido en Buenos Aires, usado en todo el mundo.
+            - generic [ref=e488]:
+              - link "Instagram" [ref=e489] [cursor=pointer]:
+                - /url: https://www.instagram.com/aquiles.indumentaria/
+                - img [ref=e490]
+              - link "WhatsApp" [ref=e493] [cursor=pointer]:
+                - /url: https://wa.me/3816464923
+                - img [ref=e494]
+              - link "Facebook" [ref=e496] [cursor=pointer]:
+                - /url: https://facebook.com
+                - img [ref=e497]
+              - link "TikTok" [ref=e499] [cursor=pointer]:
+                - /url: https://tiktok.com
+                - img [ref=e500]
+          - generic [ref=e502]:
+            - heading "Tienda" [level=3] [ref=e503]
+            - list [ref=e504]:
+              - listitem [ref=e505]:
+                - link "Selección Argentina" [ref=e506] [cursor=pointer]:
+                  - /url: /#seleccion-argentina
+              - listitem [ref=e507]:
+                - link "Fútbol Argentino" [ref=e508] [cursor=pointer]:
+                  - /url: /#futbol-argentino
+              - listitem [ref=e509]:
+                - link "Retro" [ref=e510] [cursor=pointer]:
+                  - /url: /#retro
+              - listitem [ref=e511]:
+                - link "Urban" [ref=e512] [cursor=pointer]:
+                  - /url: /#urban
+          - generic [ref=e513]:
+            - heading "Ayuda" [level=3] [ref=e514]
+            - list [ref=e515]:
+              - listitem [ref=e516]:
+                - link "Guía de Tallas" [ref=e517] [cursor=pointer]:
+                  - /url: /ayuda#tallas
+              - listitem [ref=e518]:
+                - link "Envíos" [ref=e519] [cursor=pointer]:
+                  - /url: /ayuda#envios
+              - listitem [ref=e520]:
+                - link "Devoluciones" [ref=e521] [cursor=pointer]:
+                  - /url: /ayuda#devoluciones
+              - listitem [ref=e522]:
+                - link "Preguntas Frecuentes" [ref=e523] [cursor=pointer]:
+                  - /url: /ayuda#preguntas
+              - listitem [ref=e524]:
+                - link "Contacto" [ref=e525] [cursor=pointer]:
+                  - /url: /ayuda#contacto
+          - generic [ref=e526]:
+            - heading "Compañía" [level=3] [ref=e527]
+            - list [ref=e528]:
+              - listitem [ref=e529]:
+                - link "Sobre Nosotros" [ref=e530] [cursor=pointer]:
+                  - /url: /nosotros
+          - generic [ref=e531]:
+            - heading "Aceptamos" [level=3] [ref=e532]
+            - generic [ref=e533]:
+              - generic [ref=e534]: VISA
+              - generic [ref=e535]: MC
+              - generic [ref=e536]: AMEX
+              - generic [ref=e537]: PAYPAL
+        - generic [ref=e539]:
+          - paragraph [ref=e540]: © 2026 AQUILES INDUMENTARIA. Todos los derechos reservados.
+          - generic [ref=e541]:
+            - link "Política de Privacidad" [ref=e542] [cursor=pointer]:
+              - /url: "#privacy"
+            - link "Términos de Servicio" [ref=e543] [cursor=pointer]:
+              - /url: "#terms"
+      - generic [ref=e545]:
+        - generic [ref=e546]: AQUILES INDUMENTARIA
+        - generic [ref=e547]: AQUILES INDUMENTARIA
+        - generic [ref=e548]: AQUILES INDUMENTARIA
+        - generic [ref=e549]: AQUILES INDUMENTARIA
+  - button [ref=e551]:
+    - img [ref=e552]
