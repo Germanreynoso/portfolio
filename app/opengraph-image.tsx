@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/og'
 
-export const alt = 'Germán Reynoso — Full Stack Developer · AI · Automatización · SaaS'
+export const alt =
+  'Germán Reynoso — Desarrollo Web, Automatización con IA y SaaS'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -16,7 +17,7 @@ export default function OpenGraphImage() {
           justifyContent: 'space-between',
           padding: '72px',
           background:
-            'radial-gradient(circle at 75% -10%, #1e3a5f 0%, transparent 55%), #0a0a0a',
+            'radial-gradient(circle at 78% -10%, #5b21b6 0%, transparent 55%), radial-gradient(circle at 0% 110%, #4c1d95 0%, transparent 45%), #0d0a14',
           color: '#fafafa',
           fontFamily: 'sans-serif',
         }}
@@ -29,8 +30,8 @@ export default function OpenGraphImage() {
               justifyContent: 'center',
               width: '56px',
               height: '56px',
-              borderRadius: '12px',
-              background: '#3b82f6',
+              borderRadius: '14px',
+              background: 'linear-gradient(135deg, #7c3aed, #a855f7)',
               color: '#fff',
               fontSize: '24px',
               fontWeight: 700,
@@ -38,30 +39,38 @@ export default function OpenGraphImage() {
           >
             GR
           </div>
-          <span style={{ fontSize: '26px', color: '#a1a1aa' }}>
+          <span style={{ fontSize: '26px', color: '#c4b5fd' }}>
             Germán Reynoso
           </span>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          <div style={{ fontSize: '72px', fontWeight: 700, lineHeight: 1.05 }}>
-            Full Stack Developer
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div
+            style={{
+              fontSize: '60px',
+              fontWeight: 700,
+              lineHeight: 1.1,
+              maxWidth: '900px',
+            }}
+          >
+            Digitalizo procesos, automatizo tareas y construyo productos web
+            escalables.
           </div>
           <div
             style={{
-              fontSize: '56px',
+              fontSize: '40px',
               fontWeight: 700,
-              background: 'linear-gradient(90deg, #60a5fa, #a78bfa)',
+              background: 'linear-gradient(90deg, #a855f7, #c4b5fd)',
               backgroundClip: 'text',
               color: 'transparent',
             }}
           >
-            AI · Automatización · SaaS
+            Web · Automatización con IA · SaaS
           </div>
         </div>
 
-        <div style={{ fontSize: '28px', color: '#a1a1aa' }}>
-          Productos web, automatizaciones inteligentes y SaaS con impacto real.
+        <div style={{ fontSize: '26px', color: '#a1a1aa' }}>
+          Soluciones reales para clientes públicos y privados.
         </div>
       </div>
     ),

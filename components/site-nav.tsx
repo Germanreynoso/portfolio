@@ -2,14 +2,15 @@
 
 import { useEffect, useState } from 'react'
 import { buttonVariants } from '@/components/ui/button'
-import { Menu, X } from 'lucide-react'
+import { CalendarCheck, Menu, X } from 'lucide-react'
+import { siteConfig } from '@/lib/site-config'
 
 const links = [
   { label: 'Inicio', href: '#top' },
+  { label: 'Casos', href: '#credibility' },
   { label: 'Proyectos', href: '#projects' },
-  { label: 'Servicios', href: '#services' },
+  { label: 'Proceso', href: '#process' },
   { label: 'Stack', href: '#stack' },
-  { label: 'Mi camino', href: '#experience' },
   { label: 'Contacto', href: '#contact' },
 ]
 
@@ -52,10 +53,13 @@ export function SiteNav() {
 
         <div className="flex items-center gap-2">
           <a
-            href="#contact"
+            href={siteConfig.calendar}
+            target="_blank"
+            rel="noopener noreferrer"
             className={`${buttonVariants({ size: 'sm' })} hidden rounded-full sm:inline-flex`}
           >
-            Contactame
+            <CalendarCheck className="size-3.5" />
+            Agendar
           </a>
           <button
             type="button"
@@ -82,11 +86,14 @@ export function SiteNav() {
               </a>
             ))}
             <a
-              href="#contact"
+              href={siteConfig.calendar}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className={`${buttonVariants({ size: 'sm' })} mt-2 rounded-lg`}
             >
-              Contactame
+              <CalendarCheck className="size-3.5" />
+              Agendar reunión
             </a>
           </div>
         </div>

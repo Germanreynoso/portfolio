@@ -1,10 +1,11 @@
 import { SiteNav } from '@/components/site-nav'
 import { Hero } from '@/components/hero'
-import { Stats } from '@/components/stats'
+import { Credibility } from '@/components/credibility'
 import { Projects } from '@/components/projects'
 import { Services } from '@/components/services'
+import { Process } from '@/components/process'
 import { TechStack } from '@/components/tech-stack'
-import { Experience } from '@/components/experience'
+import { Testimonials } from '@/components/testimonials'
 import { Contact } from '@/components/contact'
 import { SiteFooter } from '@/components/site-footer'
 
@@ -13,11 +14,12 @@ export default function Page() {
     <main className="relative min-h-screen bg-background">
       <SiteNav />
       <Hero />
-      <Stats />
+      <Credibility />
       <Projects />
       <Services />
+      <Process />
       <TechStack />
-      <Experience />
+      <Testimonials />
       <Contact />
       <SiteFooter />
     </main>

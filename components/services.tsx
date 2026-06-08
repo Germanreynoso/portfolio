@@ -7,6 +7,7 @@ import {
   Workflow,
 } from 'lucide-react'
 import { SectionHeading } from '@/components/section-heading'
+import { Reveal, Stagger, StaggerItem } from '@/components/motion'
 
 const services = [
   {
@@ -51,15 +52,17 @@ export function Services() {
   return (
     <section id="services" className="scroll-mt-24 px-4 py-20">
       <div className="mx-auto max-w-5xl">
-        <SectionHeading
-          eyebrow="Servicios"
-          title="¿En qué puedo ayudarte?"
-          description="Un set completo de herramientas full stack para diseñar, lanzar y automatizar los sistemas sobre los que funciona tu negocio."
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Servicios"
+            title="Soluciones, no solo código"
+            description="Mis clientes no compran tecnología: compran procesos más ágiles, tiempos más cortos y productos que generan resultados."
+          />
+        </Reveal>
 
-        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
-            <div
+            <StaggerItem
               key={s.title}
               className="group flex flex-col gap-4 bg-card p-6 transition-colors hover:bg-secondary"
             >
@@ -72,9 +75,9 @@ export function Services() {
                   {s.description}
                 </p>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   )

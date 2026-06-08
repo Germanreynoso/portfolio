@@ -11,9 +11,10 @@ const geistMono = Geist_Mono({
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.germanreynoso.dev'
 
-const title = 'Germán Reynoso — Full Stack Developer · AI · Automatización · SaaS'
+const title =
+  'Germán Reynoso — Desarrollo Web, Automatización con IA y SaaS'
 const description =
-  'Full Stack Developer especializado en Inteligencia Artificial, Automatización y productos SaaS. Desarrollo aplicaciones web, automatizaciones inteligentes y productos SaaS que resuelven problemas reales y generan impacto en negocios y comunidades.'
+  'Ayudo a empresas y organismos a digitalizar procesos, automatizar tareas y construir productos web escalables. Plataformas web, automatizaciones con IA y soluciones SaaS con resultados medibles.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -44,24 +45,11 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title,
     description,
+    creator: '@Germanreynoso',
   },
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
+  robots: { index: true, follow: true },
+  // Los íconos y la imagen Open Graph se generan automáticamente desde
+  // app/icon.tsx, app/apple-icon.tsx y app/opengraph-image.tsx.
 }
 
 export default function RootLayout({
