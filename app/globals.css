@@ -5,9 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-heading: var(--font-sans);
-  --font-sans: var(--font-geist-sans), 'Geist Fallback';
-  --font-mono: var(--font-geist-mono), 'Geist Mono Fallback';
+  --font-heading: var(--font-archivo), 'Archivo Fallback';
+  --font-sans: var(--font-archivo), 'Archivo Fallback';
+  --font-mono: var(--font-jetbrains), 'JetBrains Mono Fallback';
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -39,6 +39,8 @@
   --color-card: var(--card);
   --color-foreground: var(--foreground);
   --color-background: var(--background);
+  --color-blueprint: var(--blueprint);
+  --color-blueprint-foreground: var(--blueprint-foreground);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -48,121 +50,103 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/*
+ * ESCALA 1:1 — sistema "blueprint nocturno":
+ * el plano técnico en su forma clásica de cianotipo — líneas y tinta
+ * claras sobre azul profundo + azul de ingeniería + minio de señal.
+ */
 :root {
-  --background: oklch(0.14 0.012 290);
-  --foreground: oklch(0.97 0.004 290);
-  --card: oklch(0.18 0.014 290);
-  --card-foreground: oklch(0.97 0.004 290);
-  --popover: oklch(0.17 0.014 290);
-  --popover-foreground: oklch(0.97 0.004 290);
-  --primary: oklch(0.62 0.2 295);
-  --primary-foreground: oklch(0.98 0.004 290);
-  --secondary: oklch(0.24 0.016 290);
-  --secondary-foreground: oklch(0.97 0.004 290);
-  --muted: oklch(0.22 0.014 290);
-  --muted-foreground: oklch(0.66 0.02 290);
-  --accent: oklch(0.7 0.17 300);
-  --accent-foreground: oklch(0.14 0.012 290);
-  --destructive: oklch(0.62 0.21 25);
-  --border: oklch(1 0 0 / 9%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.62 0.2 295);
-  --chart-1: oklch(0.62 0.2 295);
-  --chart-2: oklch(0.7 0.17 300);
-  --chart-3: oklch(0.6 0.15 270);
-  --chart-4: oklch(0.55 0.12 320);
-  --chart-5: oklch(0.45 0.08 290);
-  --radius: 0.75rem;
-  --sidebar: oklch(0.17 0.014 290);
-  --sidebar-foreground: oklch(0.97 0.004 290);
-  --sidebar-primary: oklch(0.62 0.2 295);
-  --sidebar-primary-foreground: oklch(0.98 0.004 290);
-  --sidebar-accent: oklch(0.24 0.016 290);
-  --sidebar-accent-foreground: oklch(0.97 0.004 290);
-  --sidebar-border: oklch(1 0 0 / 9%);
-  --sidebar-ring: oklch(0.62 0.2 295);
+  color-scheme: dark;
+  --background: oklch(0.19 0.025 255);
+  --foreground: oklch(0.95 0.008 240);
+  --card: oklch(0.225 0.03 255);
+  --card-foreground: oklch(0.95 0.008 240);
+  --popover: oklch(0.225 0.03 255);
+  --popover-foreground: oklch(0.95 0.008 240);
+  --primary: oklch(0.68 0.15 250);
+  --primary-foreground: oklch(0.17 0.025 255);
+  --secondary: oklch(0.26 0.03 255);
+  --secondary-foreground: oklch(0.95 0.008 240);
+  --muted: oklch(0.26 0.03 255);
+  --muted-foreground: oklch(0.7 0.025 245);
+  --accent: oklch(0.72 0.16 48);
+  --accent-foreground: oklch(0.17 0.025 255);
+  --destructive: oklch(0.65 0.2 27);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 18%);
+  --ring: oklch(0.68 0.15 250);
+  --blueprint: oklch(0.26 0.075 255);
+  --blueprint-foreground: oklch(1 0 0 / 92%);
+  --grid-line: oklch(1 0 0 / 5%);
+  --chart-1: oklch(0.68 0.15 250);
+  --chart-2: oklch(0.72 0.16 48);
+  --chart-3: oklch(0.5 0.12 255);
+  --chart-4: oklch(0.6 0.1 255);
+  --chart-5: oklch(0.7 0.025 245);
+  --radius: 0.25rem;
+  --ease-draft: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-snap: cubic-bezier(0.2, 0, 0, 1);
+  --sidebar: oklch(0.225 0.03 255);
+  --sidebar-foreground: oklch(0.95 0.008 240);
+  --sidebar-primary: oklch(0.68 0.15 250);
+  --sidebar-primary-foreground: oklch(0.17 0.025 255);
+  --sidebar-accent: oklch(0.26 0.03 255);
+  --sidebar-accent-foreground: oklch(0.95 0.008 240);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.68 0.15 250);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    @apply scroll-smooth font-sans;
+  }
   body {
     @apply bg-background text-foreground;
   }
-  html {
-    @apply font-sans;
+  a:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--primary);
+    color: var(--background);
   }
 }
 
 @layer utilities {
-  .glass {
-    background: color-mix(in oklch, var(--card) 55%, transparent);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+  /* Retícula de papel milimetrado, apenas visible */
+  .grid-paper {
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
-  .text-gradient {
-    background: linear-gradient(
-      120deg,
-      var(--foreground) 30%,
-      var(--primary) 65%,
-      var(--accent) 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+  /* Variante para superficies cianotipo */
+  .grid-paper-inverse {
+    background-image:
+      linear-gradient(oklch(1 0 0 / 7%) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(1 0 0 / 7%) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
-  /* Grano sutil para profundidad (estilo Linear/Vercel) */
-  .grain::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    opacity: 0.025;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  /* Titulares: Archivo expandida, voz display del sistema */
+  .type-display {
+    font-stretch: 115%;
+    font-weight: 640;
+    letter-spacing: -0.02em;
   }
-  /* Borde con gradiente sutil para tarjetas premium */
-  .ring-glow {
-    box-shadow:
-      inset 0 1px 0 0 color-mix(in oklch, var(--foreground) 6%, transparent),
-      0 1px 2px 0 oklch(0 0 0 / 30%);
-  }
-}
-
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulse-glow {
-  0%,
-  100% {
-    opacity: 0.4;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-
-.animate-fade-up {
-  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }

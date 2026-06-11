@@ -1,28 +1,12 @@
 import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
 import { SectionHeading } from '@/components/section-heading'
+import { Corners } from '@/components/drafting'
 import { Reveal, Stagger, StaggerItem } from '@/components/motion'
-
-type Badge =
-  | 'Plataforma pública'
-  | 'Sistema interno'
-  | 'SaaS'
-  | 'IA'
-  | 'Automatización'
-  | 'Ecommerce'
-
-const badgeStyles: Record<Badge, string> = {
-  'Plataforma pública': 'border-sky-400/30 bg-sky-400/10 text-sky-300',
-  'Sistema interno': 'border-amber-400/30 bg-amber-400/10 text-amber-300',
-  SaaS: 'border-primary/40 bg-primary/10 text-primary',
-  IA: 'border-accent/40 bg-accent/10 text-accent',
-  Automatización: 'border-emerald-400/30 bg-emerald-400/10 text-emerald-300',
-  Ecommerce: 'border-rose-400/30 bg-rose-400/10 text-rose-300',
-}
 
 type Project = {
   title: string
-  badges: Badge[]
+  badges: string[]
   problem: string
   solution: string
   result: string
@@ -35,12 +19,12 @@ type Project = {
 const projects: Project[] = [
   {
     title: 'Municipalidad de Tafí del Valle',
-    badges: ['Plataforma pública'],
+    badges: ['Público'],
     problem:
       'Un organismo público necesitaba presencia digital oficial para una iniciativa de turismo internacional.',
     solution:
       'Sitio institucional rápido, accesible y optimizado para SEO y escalabilidad de tráfico.',
-    result: 'Plataforma oficial en producción y disponible 24/7.',
+    result: 'Plataforma oficial del municipio, en producción 24/7.',
     tech: ['Next.js', 'React', 'Tailwind CSS'],
     image: '/projects/municipalidad.webp',
     href: 'https://www.municipalidadtafidelvalle.com/',
@@ -53,14 +37,14 @@ const projects: Project[] = [
       'Analizar licitaciones públicas tomaba horas de lectura manual y dejaba margen al error.',
     solution:
       'SaaS con IA que procesa pliegos y devuelve los puntos clave en segundos.',
-    result: 'Análisis que pasó de horas a segundos.',
+    result: 'Análisis de pliegos: de horas de lectura a segundos.',
     tech: ['FastAPI', 'PostgreSQL', 'OpenAI'],
     image: '/projects/pliegobot.webp',
     href: 'https://www.pliegobot.com/',
   },
   {
     title: 'SOSCan',
-    badges: ['Plataforma pública'],
+    badges: ['Público'],
     problem:
       'Personas vulnerables sin forma rápida de compartir su información crítica en emergencias.',
     solution:
@@ -69,6 +53,18 @@ const projects: Project[] = [
     tech: ['React', 'Node.js'],
     image: '/projects/soscan.webp',
     href: 'https://soscan.netlify.app/',
+  },
+  {
+    title: 'La Prohibida',
+    badges: ['Turismo', 'IA'],
+    problem:
+      'Una casa de alquiler turístico recibía las mismas consultas (disponibilidad, precios, servicios) a toda hora y por varios canales.',
+    solution:
+      'Sitio web de la propiedad con un chatbot integrado que responde las dudas principales al instante, las 24 horas.',
+    result: 'Consultas frecuentes resueltas solas y menos fricción para reservar.',
+    tech: ['React', 'Tailwind CSS', 'OpenAI'],
+    image: '/projects/laprohibida.webp',
+    href: 'https://laprohibida.netlify.app/',
   },
   {
     title: 'Aquiles Indumentaria',
@@ -84,7 +80,7 @@ const projects: Project[] = [
   },
   {
     title: 'TuWebAlToque',
-    badges: ['SaaS', 'Automatización'],
+    badges: ['SaaS', 'Autom.'],
     problem:
       'Pymes y emprendedores que necesitaban presencia online sin fricción ni tiempos largos.',
     solution:
@@ -110,106 +106,120 @@ const projects: Project[] = [
 
 export function Projects() {
   return (
-    <section id="projects" className="scroll-mt-24 px-4 py-20">
-      <div className="mx-auto max-w-5xl">
+    <section id="projects" className="scroll-mt-24 px-4 py-20 sm:px-6 sm:py-28">
+      <div className="mx-auto max-w-6xl">
         <Reveal>
           <SectionHeading
-            eyebrow="Estudios de caso"
+            index="A-02"
+            eyebrow="Casos"
             title="Problema, solución y resultado"
-            description="Cada proyecto resuelve una necesidad concreta. Esto es lo que estaba en juego, cómo lo resolví y el impacto que generó."
+            description="Cada ficha documenta una necesidad concreta: qué estaba en juego, cómo lo resolví y el impacto que generó."
           />
         </Reveal>
 
         <Stagger className="grid grid-cols-1 gap-5 md:grid-cols-2">
-          {projects.map((p) => (
-            <StaggerItem
-              key={p.title}
-              className={p.featured ? 'md:col-span-2' : ''}
-            >
-              <a
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Ver ${p.title} en una nueva pestaña`}
-                className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card ring-glow transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_0_1px_color-mix(in_oklch,var(--primary)_30%,transparent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 ${
-                  p.featured ? 'md:flex-row' : ''
-                }`}
+          {projects.map((p, i) => {
+            const code = `PRJ-${String(i + 1).padStart(3, '0')}`
+            const host = new URL(p.href).hostname.replace(/^www\./, '')
+            return (
+              <StaggerItem
+                key={p.title}
+                className={p.featured ? 'md:col-span-2' : ''}
               >
-                <div
-                  className={`relative w-full overflow-hidden ${
-                    p.featured
-                      ? 'aspect-[16/9] md:aspect-auto md:w-1/2'
-                      : 'aspect-[16/10]'
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Ver ${p.title} en una nueva pestaña`}
+                  className={`group relative flex h-full flex-col border border-border bg-card transition-[border-color] duration-150 hover:border-primary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                    p.featured ? 'md:flex-row' : ''
                   }`}
                 >
-                  <Image
-                    src={p.image || '/placeholder.svg'}
-                    alt={`Vista previa de ${p.title}`}
-                    fill
-                    priority={p.featured}
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent md:bg-gradient-to-r" />
-                </div>
+                  <Corners className="opacity-0 transition-opacity duration-150 group-hover:opacity-100" />
 
-                <div className="flex flex-1 flex-col p-6">
-                  <div className="mb-3 flex flex-wrap items-center gap-2">
-                    {p.badges.map((b) => (
-                      <span
-                        key={b}
-                        className={`rounded-full border px-2.5 py-0.5 text-[0.7rem] font-medium ${badgeStyles[b]}`}
+                  {/* lámina: captura con marco y URL real */}
+                  <div
+                    className={`flex flex-col p-4 pb-0 ${
+                      p.featured ? 'md:w-1/2 md:pb-4 md:pr-0' : ''
+                    }`}
+                  >
+                    <div className="relative w-full overflow-hidden border border-border">
+                      <div
+                        className={`relative w-full ${
+                          p.featured ? 'aspect-[16/9] md:h-full md:min-h-72' : 'aspect-[16/10]'
+                        }`}
                       >
-                        {b}
-                      </span>
-                    ))}
+                        <Image
+                          src={p.image}
+                          alt={`Vista previa de ${p.title}`}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                      </div>
+                    </div>
+                    <p className="mt-2 font-mono text-[0.65rem] uppercase tracking-[0.12em] text-muted-foreground">
+                      {host} · en producción
+                    </p>
                   </div>
 
-                  <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-balance text-lg font-medium tracking-tight">
+                  <div className="flex flex-1 flex-col p-4 pt-5 sm:p-6">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                        <span className="font-mono text-xs tracking-[0.12em] text-accent">
+                          {code}
+                        </span>
+                        {p.badges.map((b) => (
+                          <span
+                            key={b}
+                            className="border border-border px-1.5 py-px font-mono text-[0.6rem] uppercase tracking-[0.12em] text-muted-foreground"
+                          >
+                            {b}
+                          </span>
+                        ))}
+                      </div>
+                      <ArrowUpRight className="size-5 shrink-0 text-muted-foreground transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
+                    </div>
+
+                    <h3 className="type-display mt-3 text-balance text-xl tracking-tight sm:text-2xl">
                       {p.title}
                     </h3>
-                    <ArrowUpRight className="size-5 shrink-0 text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
+
+                    <dl className="mt-4 border-t border-border text-sm">
+                      <div className="grid grid-cols-[90px_1fr] gap-3 border-b border-border py-2.5">
+                        <dt className="font-mono text-xs uppercase tracking-[0.1em] text-muted-foreground">
+                          Problema
+                        </dt>
+                        <dd className="text-pretty leading-relaxed text-muted-foreground">
+                          {p.problem}
+                        </dd>
+                      </div>
+                      <div className="grid grid-cols-[90px_1fr] gap-3 border-b border-border py-2.5">
+                        <dt className="font-mono text-xs uppercase tracking-[0.1em] text-muted-foreground">
+                          Solución
+                        </dt>
+                        <dd className="text-pretty leading-relaxed text-muted-foreground">
+                          {p.solution}
+                        </dd>
+                      </div>
+                      <div className="grid grid-cols-[90px_1fr] gap-3 border-b border-border py-2.5">
+                        <dt className="font-mono text-xs uppercase tracking-[0.1em] text-accent">
+                          Resultado
+                        </dt>
+                        <dd className="text-pretty font-medium leading-relaxed text-foreground">
+                          {p.result}
+                        </dd>
+                      </div>
+                    </dl>
+
+                    <p className="mt-auto pt-4 font-mono text-xs text-muted-foreground">
+                      {p.tech.join(' · ')}
+                    </p>
                   </div>
-
-                  <dl className="mt-3 flex flex-col gap-2.5 text-sm">
-                    <div className="flex gap-2">
-                      <dt className="shrink-0 font-mono text-[0.7rem] uppercase tracking-wider text-muted-foreground/60">
-                        Problema
-                      </dt>
-                      <dd className="text-pretty leading-relaxed text-muted-foreground">
-                        {p.problem}
-                      </dd>
-                    </div>
-                    <div className="flex gap-2">
-                      <dt className="shrink-0 font-mono text-[0.7rem] uppercase tracking-wider text-muted-foreground/60">
-                        Solución
-                      </dt>
-                      <dd className="text-pretty leading-relaxed text-muted-foreground">
-                        {p.solution}
-                      </dd>
-                    </div>
-                  </dl>
-
-                  <p className="mt-3 text-pretty text-sm font-medium leading-relaxed text-foreground">
-                    <span className="text-accent">→ </span>
-                    {p.result}
-                  </p>
-
-                  <div className="mt-auto flex flex-wrap gap-2 pt-4">
-                    {p.tech.map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-full border border-border bg-secondary px-2.5 py-0.5 font-mono text-xs text-muted-foreground"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </a>
-            </StaggerItem>
-          ))}
+                </a>
+              </StaggerItem>
+            )
+          })}
         </Stagger>
       </div>
     </section>

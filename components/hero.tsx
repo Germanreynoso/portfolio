@@ -1,16 +1,17 @@
 'use client'
 
 import Image from 'next/image'
-import { ArrowUpRight, CalendarCheck, Sparkles } from 'lucide-react'
-import { motion, useReducedMotion, EASE } from '@/components/motion'
+import { ArrowUpRight, CalendarCheck } from 'lucide-react'
+import { motion, useReducedMotion, EASE, Rule } from '@/components/motion'
+import { Corners } from '@/components/drafting'
 import { buttonVariants } from '@/components/ui/button'
 import { siteConfig } from '@/lib/site-config'
 
-const metrics = [
-  { value: '8+', label: 'Proyectos en producción' },
-  { value: 'Público + Privado', label: 'Clientes reales' },
-  { value: 'IA', label: 'Automatizaciones inteligentes' },
-  { value: 'En uso', label: 'Sistemas con usuarios reales' },
+// Prueba social con nombres reales: pesa más que métricas vagas para un comprador B2B/B2G.
+const proof = [
+  { label: 'En producción para', value: 'Municipalidad de Tafí del Valle · PliegoBot · SOSCan' },
+  { label: 'Sistemas activos', value: '8+ en sector público y privado' },
+  { label: 'Caso destacado', value: 'Análisis de licitaciones: de horas a segundos' },
 ]
 
 export function Hero() {
@@ -20,130 +21,131 @@ export function Hero() {
     reduce
       ? {}
       : {
-          initial: { opacity: 0, y: 22 },
+          initial: { opacity: 0, y: 10 },
           animate: { opacity: 1, y: 0 },
-          transition: { duration: 0.55, ease: EASE, delay },
+          transition: { duration: 0.45, ease: EASE, delay },
         }
 
   return (
     <section
       id="top"
-      className="grain relative overflow-hidden px-4 pb-16 pt-32 sm:pt-40"
+      className="grid-paper relative overflow-hidden px-4 pb-16 pt-24 sm:px-6 sm:pt-32"
     >
-      {/* glow ambiental */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-[-10%] -z-10 mx-auto h-[480px] max-w-4xl rounded-full bg-primary/20 blur-[150px]"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_70%_-10%,color-mix(in_oklch,var(--accent)_14%,transparent),transparent_55%)]"
-      />
-
-      <div className="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-[1.15fr_0.85fr]">
-        {/* izquierda: copy */}
-        <div className="flex flex-col items-start text-left">
-          <motion.div
-            {...fade(0)}
-            className="glass inline-flex items-center gap-2 rounded-full border border-border px-4 py-1.5 text-xs text-muted-foreground"
-          >
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent/60" />
-              <span className="relative inline-flex size-2 rounded-full bg-accent" />
-            </span>
-            Disponible para nuevos proyectos
-          </motion.div>
-
-          <motion.h1
-            {...fade(0.08)}
-            className="mt-6 text-balance text-3xl font-semibold leading-[1.08] tracking-tight sm:text-4xl md:text-[2.9rem]"
-          >
-            Ayudo a empresas y organismos a{' '}
-            <span className="text-gradient">digitalizar procesos</span>,
-            automatizar tareas y construir productos web escalables.
-          </motion.h1>
-
-          <motion.p
-            {...fade(0.16)}
-            className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
-          >
-            Desarrollo plataformas web, automatizaciones con IA y soluciones SaaS
-            que reducen tiempos operativos, mejoran procesos y generan resultados
-            medibles.
-          </motion.p>
-
-          <motion.div
-            {...fade(0.24)}
-            className="mt-8 flex flex-col gap-3 sm:flex-row"
-          >
-            <a
-              href="#projects"
-              className={`${buttonVariants({ size: 'lg' })} group rounded-full px-7`}
-            >
-              Ver proyectos
-              <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-            <a
-              href={siteConfig.calendar}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${buttonVariants({ size: 'lg', variant: 'outline' })} group rounded-full border-border bg-transparent px-7 hover:bg-secondary`}
-            >
-              <CalendarCheck className="size-4 text-accent" />
-              Agendar una reunión
-            </a>
-          </motion.div>
-
-          {/* métricas */}
-          <motion.dl
-            {...fade(0.32)}
-            className="mt-12 grid w-full grid-cols-2 gap-x-6 gap-y-6 border-t border-border pt-8 sm:grid-cols-4"
-          >
-            {metrics.map((m) => (
-              <div key={m.label} className="flex flex-col gap-1">
-                <dt className="text-balance text-lg font-semibold tracking-tight text-foreground">
-                  {m.value}
-                </dt>
-                <dd className="text-pretty text-xs leading-snug text-muted-foreground">
-                  {m.label}
-                </dd>
-              </div>
-            ))}
-          </motion.dl>
-        </div>
-
-        {/* derecha: retrato */}
+      <div className="mx-auto max-w-6xl">
+        {/* meta de lámina */}
         <motion.div
-          {...fade(0.16)}
-          className="relative mx-auto w-full max-w-sm"
+          {...fade(0)}
+          className="flex items-baseline justify-between font-mono text-xs uppercase tracking-[0.18em]"
         >
-          <div className="ring-glow relative overflow-hidden rounded-3xl border border-border glass">
-            <div className="relative aspect-[4/5] w-full">
-              <Image
-                src="/portrait.jpeg"
-                alt="Retrato de Germán Reynoso, Full Stack Developer"
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 768px) 80vw, 360px"
+          <span>
+            <span className="text-accent">A-01</span>
+            <span className="ml-3 text-muted-foreground">Portada</span>
+          </span>
+          <span className="hidden text-muted-foreground lg:inline">
+            26°49′ S · 65°13′ O — Tucumán, Argentina
+          </span>
+        </motion.div>
+        <Rule className="mt-3" />
+
+        <div className="mt-12 grid items-start gap-12 md:grid-cols-[1.2fr_0.8fr]">
+          {/* izquierda: copy */}
+          <div className="flex flex-col items-start text-left">
+            <motion.p
+              {...fade(0.06)}
+              className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground"
+            >
+              <span
+                aria-hidden="true"
+                className="inline-block size-2 bg-accent"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
-            </div>
+              Disponible para nuevos proyectos
+            </motion.p>
+
+            <motion.h1
+              {...fade(0.12)}
+              className="type-display mt-6 text-balance text-4xl leading-[1.04] tracking-tight sm:text-5xl lg:text-[3.6rem]"
+            >
+              Ayudo a empresas y organismos a{' '}
+              <span className="text-primary">digitalizar procesos</span>,
+              automatizar tareas y construir productos web escalables.
+            </motion.h1>
+
+            <motion.p
+              {...fade(0.18)}
+              className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
+            >
+              Desarrollo plataformas web, automatizaciones con IA y soluciones
+              SaaS que reducen tiempos operativos, mejoran procesos y generan
+              resultados medibles.
+            </motion.p>
+
+            <motion.div
+              {...fade(0.24)}
+              className="mt-8 flex flex-col gap-3 sm:flex-row"
+            >
+              <a
+                href={siteConfig.calendar}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${buttonVariants({ size: 'lg' })} group`}
+              >
+                <CalendarCheck className="size-4" />
+                Agendar reunión
+              </a>
+              <a
+                href="#projects"
+                className={`${buttonVariants({ size: 'lg', variant: 'outline' })} group bg-transparent`}
+              >
+                Ver proyectos
+                <ArrowUpRight className="size-4 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            </motion.div>
+
+            {/* franja de datos: evidencia real, no relleno */}
+            <motion.dl
+              {...fade(0.3)}
+              className="mt-12 w-full border-t border-border"
+            >
+              {proof.map((p) => (
+                <div
+                  key={p.label}
+                  className="grid gap-1 border-b border-border py-3 sm:grid-cols-[200px_1fr] sm:gap-6"
+                >
+                  <dt className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
+                    {p.label}
+                  </dt>
+                  <dd className="text-pretty text-sm font-medium text-foreground">
+                    {p.value}
+                  </dd>
+                </div>
+              ))}
+            </motion.dl>
           </div>
 
-          {/* badge flotante: impacto, no años */}
-          <div className="glass absolute -bottom-4 -left-4 flex items-center gap-3 rounded-2xl border border-border px-4 py-3 shadow-xl">
-            <span className="grid size-9 place-items-center rounded-xl bg-primary/15 text-primary">
-              <Sparkles className="size-4" />
-            </span>
-            <div className="leading-tight">
-              <p className="text-sm font-semibold">Clientes reales</p>
-              <p className="text-xs text-muted-foreground">
-                Públicos y privados
-              </p>
+          {/* derecha: figura de plano */}
+          <motion.figure
+            {...fade(0.18)}
+            className="relative mx-auto w-full max-w-sm"
+          >
+            <div className="relative border border-border bg-card p-2">
+              <Corners />
+              <div className="relative aspect-[4/5] w-full overflow-hidden">
+                <Image
+                  src="/portrait.jpeg"
+                  alt="Retrato de Germán Reynoso, Full Stack Developer"
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 768px) 80vw, 360px"
+                />
+              </div>
             </div>
-          </div>
-        </motion.div>
+            <figcaption className="mt-3 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
+              <span className="text-accent">Fig. 01</span> — Germán Reynoso ·
+              Full Stack Developer
+            </figcaption>
+          </motion.figure>
+        </div>
       </div>
     </section>
   )

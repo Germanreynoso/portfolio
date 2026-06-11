@@ -1,11 +1,15 @@
 import { Analytics } from '@vercel/analytics/next'
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Archivo, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const archivo = Archivo({
+  variable: '--font-archivo',
+  subsets: ['latin'],
+  axes: ['wdth'],
+})
+const jetbrains = JetBrains_Mono({
+  variable: '--font-jetbrains',
   subsets: ['latin'],
 })
 
@@ -52,6 +56,11 @@ export const metadata: Metadata = {
   // app/icon.tsx, app/apple-icon.tsx y app/opengraph-image.tsx.
 }
 
+export const viewport: Viewport = {
+  themeColor: '#181f2d',
+  colorScheme: 'dark',
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -60,9 +69,19 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} bg-background`}
+      className={`${archivo.variable} ${jetbrains.variable} bg-background`}
     >
       <body className="font-sans antialiased">
+        <a
+          href="#contenido"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
+        >
+          Saltar al contenido
+        </a>
+        {/* Los reveals de motion serializan opacity:0 en el SSR; sin JS el sitio quedaría en blanco */}
+        <noscript>
+          <style>{`[style*="opacity:0"],[style*="opacity: 0"]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

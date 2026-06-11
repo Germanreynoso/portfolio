@@ -3,18 +3,21 @@
 import { motion, useReducedMotion, type Variants } from 'motion/react'
 import type { ReactNode } from 'react'
 
-// Curva de easing tipo Linear/Stripe: arranque rápido, salida suave.
-const EASE = [0.22, 1, 0.36, 1] as const
+// Sistema "draft-in": las cosas no flotan, se trazan.
+// EASE (draft): mecánico y simétrico, para todo lo estructural.
+// EASE_SNAP: decisivo y sin rebote, para UI y hovers.
+const EASE = [0.65, 0, 0.35, 1] as const
+const EASE_SNAP = [0.2, 0, 0, 1] as const
 
 /**
- * Reveal: aparición suave al entrar en viewport (una sola vez).
+ * Reveal: aparición sutil al entrar en viewport (una sola vez).
  * Respeta prefers-reduced-motion (renderiza estático).
  */
 export function Reveal({
   children,
   className,
   delay = 0,
-  y = 20,
+  y = 10,
   as = 'div',
 }: {
   children: ReactNode
@@ -31,24 +34,49 @@ export function Reveal({
       className={className}
       initial={reduce ? false : { opacity: 0, y }}
       whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.55, ease: EASE, delay }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.5, ease: EASE, delay }}
     >
       {children}
     </MotionTag>
   )
 }
 
+/**
+ * Rule: regla horizontal que se dibuja de izquierda a derecha
+ * al entrar en viewport. El gesto firma del sistema.
+ */
+export function Rule({
+  className = '',
+  delay = 0,
+}: {
+  className?: string
+  delay?: number
+}) {
+  const reduce = useReducedMotion()
+
+  return (
+    <motion.div
+      aria-hidden="true"
+      className={`h-px w-full origin-left bg-border ${className}`}
+      initial={reduce ? false : { scaleX: 0 }}
+      whileInView={reduce ? undefined : { scaleX: 1 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.7, ease: EASE, delay }}
+    />
+  )
+}
+
 const containerVariants: Variants = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.08, delayChildren: 0.05 },
+    transition: { staggerChildren: 0.07, delayChildren: 0.05 },
   },
 }
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
+  hidden: { opacity: 0, y: 8 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: EASE } },
 }
 
 /**
@@ -61,7 +89,7 @@ export function Stagger({
 }: {
   children: ReactNode
   className?: string
-  as?: 'div' | 'ul' | 'section'
+  as?: 'div' | 'ul' | 'section' | 'ol'
 }) {
   const reduce = useReducedMotion()
   const MotionTag = motion[as]
@@ -77,7 +105,7 @@ export function Stagger({
       variants={containerVariants}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: '-60px' }}
+      viewport={{ once: true, margin: '-40px' }}
     >
       {children}
     </MotionTag>
@@ -108,4 +136,4 @@ export function StaggerItem({
   )
 }
 
-export { motion, useReducedMotion, EASE }
+export { motion, useReducedMotion, EASE, EASE_SNAP }

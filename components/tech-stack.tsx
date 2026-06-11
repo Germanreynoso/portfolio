@@ -32,45 +32,41 @@ const stack = [
 
 export function TechStack() {
   return (
-    <section id="stack" className="scroll-mt-24 px-4 py-20">
-      <div className="mx-auto max-w-5xl">
+    <section id="stack" className="scroll-mt-24 px-4 py-14 sm:px-6 sm:py-20">
+      <div className="mx-auto max-w-6xl">
         <Reveal>
           <SectionHeading
+            index="A-05"
             eyebrow="Stack tecnológico"
             title="Las herramientas detrás del resultado"
             description="La tecnología es el medio, no el fin. Este es el stack con el que diseño, lanzo y automatizo soluciones que escalan."
           />
         </Reveal>
 
-        <Stagger className="flex flex-col gap-px overflow-hidden rounded-2xl border border-border bg-border">
+        <Stagger className="border border-border">
+          <div className="grid grid-cols-1 gap-4 border-b border-border bg-secondary px-5 py-2.5 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground sm:grid-cols-[200px_1fr]">
+            <span>Componente</span>
+            <span className="hidden sm:inline">Detalle</span>
+          </div>
           {stack.map((group) => (
             <StaggerItem
               key={group.category}
-              className={`grid grid-cols-1 gap-4 p-6 sm:grid-cols-[180px_1fr] sm:items-center ${
-                group.featured ? 'bg-card' : 'bg-card/60'
-              }`}
+              className="grid grid-cols-1 gap-2 border-b border-border bg-card px-5 py-4 last:border-b-0 sm:grid-cols-[200px_1fr] sm:items-baseline sm:gap-4"
             >
               <span
-                className={`font-mono text-sm uppercase tracking-wider ${
+                className={`font-mono text-xs uppercase tracking-[0.12em] ${
                   group.featured ? 'text-accent' : 'text-muted-foreground'
                 }`}
               >
                 {group.category}
               </span>
-              <div className="flex flex-wrap gap-2">
-                {group.items.map((item) => (
-                  <span
-                    key={item}
-                    className={`rounded-full border px-3 py-1 text-sm transition-colors ${
-                      group.featured
-                        ? 'border-primary/25 bg-primary/5 text-foreground hover:border-primary/50 hover:text-primary'
-                        : 'border-border bg-secondary text-muted-foreground hover:text-foreground'
-                    }`}
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
+              <span
+                className={`font-mono text-sm ${
+                  group.featured ? 'text-foreground' : 'text-muted-foreground'
+                }`}
+              >
+                {group.items.join(' · ')}
+              </span>
             </StaggerItem>
           ))}
         </Stagger>
